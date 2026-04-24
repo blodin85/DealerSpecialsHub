@@ -257,105 +257,95 @@ a { color: inherit; text-decoration: none; }
 }
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
-  /* 1. Header Fix */
+  /* 1. Header: Smaller & Tighter */
   .site-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
+    padding: 8px 12px;
     background: #ffffff;
   }
 
   .site-logo {
-    height: 45px;
+    height: 35px; /* Smaller logo for more room */
     width: auto;
   }
 
-  /* 2. Hero Fix: White text on Navy Background */
+  /* 2. Hero: No more overlapping text */
   .hero {
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: left;
-    background-color: #003B8E !important; /* Force Navy Background */
+    background-color: #003B8E;
   }
 
   .hero h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem; /* Smaller font so it doesn't take up the whole screen */
     line-height: 1.2;
-    margin-bottom: 10px;
-    color: #ffffff !important; /* Force White Headline */
+    margin: 0;
+    color: #ffffff; 
   }
 
-  .hero p {
-    font-size: 1.1rem;
-    color: #ffffff !important; /* Force White Sub-text */
-    margin-bottom: 20px;
-  }
-
-  /* 3. Search Card Fix: Navy text on White Background */
+  /* 3. Search Card: Sitting NEATLY below the text */
   .search-card {
     display: flex;
     flex-direction: column;
-    margin: 10px 15px 30px 15px; 
-    padding: 25px;
-    gap: 20px;
-    background: #ffffff !important; 
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin: 15px; /* Removed negative margin entirely */
+    padding: 15px; /* Smaller padding so it's not "too big" */
+    gap: 12px;
+    background: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   }
 
+  /* FIX: Explicitly set label color to NAVY so it's not white */
   .search-card label {
     width: 100%;
-    color: #003B8E !important; /* Force Navy text for labels */
-    font-weight: 800;
-    font-size: 0.9rem;
-    text-transform: uppercase;
+    color: #003B8E; 
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: block;
   }
 
-  /* 4. Dropdown/Input Fix: Bigger height so letters aren't cut off */
+  /* FIX: Dropdowns - slightly smaller and readable */
   .search-card select, .search-card input {
     width: 100%;
-    height: 50px; /* Increased height */
-    margin-top: 8px;
-    padding: 5px 10px; /* Space inside the box */
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    font-size: 16px; /* Standard readable size */
-    color: #333 !important; /* Dark text inside the boxes */
+    height: 42px; /* Shorter than before */
+    margin-top: 4px;
+    padding: 0 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 16px; 
+    color: #333333; /* Dark gray text for input */
     background-color: #ffffff;
-    appearance: none; /* Helps dropdowns look consistent on iPhone */
-    -webkit-appearance: none;
+    box-sizing: border-box; /* Ensures padding doesn't push width out */
   }
 
   .search-card button {
     width: 100%;
-    height: 55px;
+    height: 48px;
     background-color: #F78E1E;
-    color: white;
-    font-size: 1.2rem;
+    color: #ffffff;
+    font-size: 1rem;
     font-weight: bold;
-    border-radius: 6px;
-    margin-top: 10px;
-    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    margin-top: 5px;
   }
 
-  /* 5. Services Grid Fix */
+  /* 4. Services: Balanced cards */
   .service-grid {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    gap: 20px;
+    padding: 15px;
+    gap: 12px;
   }
 
   .service-card {
     background: #ffffff;
-    border: 1px solid #eee;
-    padding: 20px;
-    border-radius: 10px;
-  }
-
-  .service-card h3 {
-    color: #003B8E;
+    border: 1px solid #eeeeee;
+    padding: 15px;
+    border-radius: 6px;
   }
 
   .nav-links {
