@@ -802,3 +802,17 @@ input {
     margin: 12px auto 0;
   }
 }
+.logo-img {
+  display: block;
+  height: 46px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .logo-img {
+    height: 34px;
+    max-width: 210px;
+  }
+}
