@@ -257,51 +257,100 @@ a { color: inherit; text-decoration: none; }
 }
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
-  
-  /* Centering the Header & Logo */
+  /* 1. Header Fix: Keep Logo and Sign-in side-by-side */
   .site-header {
-    flex-direction: column; /* Stacks logo and sign-in button */
-    gap: 15px;
-    padding: 20px 0;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: #ffffff;
   }
 
-  /* Centering the Hero Content */
+  .site-logo {
+    height: 45px;
+    width: auto;
+  }
+
+  /* 2. Hero Fix: Make text readable and not covered */
   .hero {
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers the text horizontally */
+    padding: 40px 20px;
+    text-align: left;
+    background-color: #003B8E;
   }
 
   .hero h1 {
     font-size: 1.8rem !important;
-    text-align: center;
-    width: 100%;
+    line-height: 1.2;
+    margin: 0;
+    color: #ffffff;
   }
 
-  /* Centering the Search Card */
+  .hero p {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  /* 3. Search Card Fix: Move it UNDER the text so it doesn't overlap */
   .search-card {
+    display: flex;
     flex-direction: column;
-    margin: -30px 15px 20px 15px; /* Ensures even gaps on left/right */
+    margin: 20px 15px; 
     padding: 20px;
-    align-items: center; /* Centers labels and inputs */
+    gap: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: left;
   }
 
   .search-card label {
     width: 100%;
-    text-align: left; /* Keeps labels easy to read above inputs */
+    display: flex;
+    flex-direction: column;
+    color: #003B8E;
+    font-weight: bold;
   }
 
-  /* Centering the Service Grids */
-  .service-grid, .why-grid {
-    grid-template-columns: 1fr !important;
+  .search-card select, .search-card input {
+    width: 100%;
+    height: 45px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* Prevents auto-zoom on iPhone */
+  }
+
+  .search-card button {
+    width: 100%;
+    height: 50px;
+    background-color: #F78E1E;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* 4. Services Grid Fix: Stack them neatly */
+  .service-grid {
+    display: flex;
+    flex-direction: column;
     padding: 20px;
-    justify-items: center; /* Centering the cards themselves */
+    gap: 15px;
   }
 
   .service-card {
-    width: 90%; /* Keeps cards from touching the very edge of the screen */
-    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    border: 1px solid #eee;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Hide Desktop Links to save space */
+  .nav-links {
+    display: none;
   }
 }
