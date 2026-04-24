@@ -267,23 +267,29 @@ a { color: inherit; text-decoration: none; }
     background: #ffffff;
   }
 
-  .site-logo {
-    height: 35px; /* Smaller logo for more room */
+ .site-logo {
+    height: 28px; /* Makes the logo smaller and sleeker on mobile */
     width: auto;
   }
 
-  /* 2. Hero: No more overlapping text */
+ /* 2. Hero Fix: Remove the bottom gap */
   .hero {
-    padding: 30px 20px;
+    padding: 25px 20px 0 20px; /* The '0' removes the bottom gap */
     text-align: left;
     background-color: #003B8E;
   }
 
   .hero h1 {
-    font-size: 1.5rem; /* Smaller font so it doesn't take up the whole screen */
-    line-height: 1.2;
+    font-size: 1.4rem; 
     margin: 0;
+    padding-bottom: 5px; /* Keeps a tiny space between headline and subtext */
     color: #ffffff; 
+  }
+
+  .hero p {
+    margin: 0;
+    padding-bottom: 10px; /* Controls space exactly above the search bar */
+    color: #ffffff;
   }
 
   /* 3. Search Card Fix: Perfectly Centered */
