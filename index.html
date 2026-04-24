@@ -1,62 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DealerSpecialsHub</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerSpecialsHub | Search • Compare • Save</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="brand-icon" aria-hidden="true">
+          <span class="car-shape"></span>
+        </span>
+        <span class="brand-text">
+          <span class="brand-main">DealerSpecials</span><span class="brand-hub">Hub</span>
+          <span class="brand-tag">SEARCH • COMPARE • SAVE</span>
+        </span>
+      </a>
 
-<header class="header">
-  <h1>DealerSpecialsHub</h1>
-</header>
-
-<section class="search-section">
-  <input type="text" placeholder="Service Type">
-  <input type="text" placeholder="Make">
-  <input type="text" placeholder="ZIP Code">
-  <button>Search</button>
-</section>
-
-<section class="about-section">
-  <div class="container">
-
-    <h2>About DealerSpecialsHub</h2>
-    <h3 class="subtitle">Your Shortcut to Dealership Savings.</h3>
-
-    <p>
-      Most people think <strong>"Dealership Service"</strong> means 
-      <strong>"Expensive."</strong> We’re here to prove that’s not true. 
-      Dealerships run incredible specials every day to keep their bays full, 
-      but those deals are usually hidden on page 10 of a Google search or buried in an email.
-    </p>
-
-    <p>
-      <strong>DealerSpecialsHub</strong> was created to bring every local dealership special 
-      into one clean, easy-to-use dashboard. We do the digging, you get the savings.
-    </p>
-
-    <h3>Why DealerSpecialsHub?</h3>
-
-    <ul class="about-list">
-      <li><strong>Centralized Search:</strong> One place for all dealer deals.</li>
-      <li><strong>Total Transparency:</strong> Compare services side-by-side.</li>
-      <li><strong>Quality Without the Cost:</strong> Dealer service without premium pricing.</li>
-    </ul>
-
-    <h3>The Mission</h3>
-
-    <p>
-      To make expert vehicle maintenance affordable for everyone.
-    </p>
-
-    <div class="tagline">
-      Search. Compare. Save. <strong>Welcome to the Hub.</strong>
+      <nav class="desktop-nav">
+        <a href="#deals">Deals</a>
+        <a href="#about">About</a>
+        <a href="#dealers">Dealers</a>
+      </nav>
     </div>
+  </header>
 
-  </div>
-</section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Dealer service specials in one place</span>
+          <h1>Find local dealer service deals without searching 15 websites.</h1>
+          <p>
+            Search by service type, vehicle make, and ZIP code. Compare nearby dealership offers and see estimated distance before you decide where to go.
+          </p>
 
+          <form class="search-card" id="searchForm">
+            <label>
+              <span>Service Type</span>
+              <select id="serviceType">
+                <option value="">Any service</option>
+                <option>Oil Change</option>
+                <option>Brake Service</option>
+                <option>Tire Rotation</option>
+                <option>Battery Replacement</option>
+                <option>Alignment</option>
+                <option>Multi-Point Inspection</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Make</span>
+              <select id="make">
+                <option value="">Any make</option>
+                <option>Toyota</option>
+                <option>Honda</option>
+                <option>Ford</option>
+                <option>Chevrolet</option>
+                <option>Nissan</option>
+                <option>Hyundai</option>
+              </select>
+            </label>
+
+            <label>
+              <span>ZIP Code</span>
+              <input id="zipCode" inputmode="numeric" maxlength="5" placeholder="91730" />
+            </label>
+
+            <button type="submit">Find Deals</button>
+          </form>
+
+          <div class="trust-row">
+            <span>Updated from your Google Sheet</span>
+            <span>Distance-ready results</span>
+            <span>Mobile friendly</span>
+          </div>
+        </div>
+
+        <aside class="preview-card" aria-label="Example dealer special">
+          <div class="preview-top">
+            <span class="pill">Nearby Special</span>
+            <span class="distance">3.8 mi</span>
+          </div>
+          <h3>Full Synthetic Oil Change</h3>
+          <p class="dealer">Penske Honda Ontario</p>
+          <div class="price-row">
+            <strong>$59.95</strong>
+            <span>Honda • Service</span>
+          </div>
+          <button class="ghost-btn">View Special</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="results-section" id="deals">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Sample results layout</span>
+            <h2>Dealer specials near you</h2>
+          </div>
+          <p id="resultNote">Results will update from your Google Sheet when connected and published.</p>
+        </div>
+
+        <div class="deal-grid" id="dealGrid">
+          <article class="deal-card" data-make="Toyota" data-service="Oil Change" data-zip="91730">
+            <div class="deal-card-head">
+              <span class="service-badge">Oil Change</span>
+              <span class="mile-badge">4.2 mi</span>
+            </div>
+            <h3>$49.95 Synthetic Oil Change</h3>
+            <p class="dealer-name">Toyota of Rancho</p>
+            <p class="deal-meta">Toyota • Service special • Expires 04/30</p>
+            <a href="#" class="deal-link">View dealer special</a>
+          </article>
+
+          <article class="deal-card" data-make="Honda" data-service="Brake Service" data-zip="91730">
+            <div class="deal-card-head">
+              <span class="service-badge">Brake Service</span>
+              <span class="mile-badge">6.7 mi</span>
+            </div>
+            <h3>15% Off Brake Pads & Rotors</h3>
+            <p class="dealer-name">Honda Service Center</p>
+            <p class="deal-meta">Honda • Service special • Limited time</p>
+            <a href="#" class="deal-link">View dealer special</a>
+          </article>
+
+          <article class="deal-card" data-make="Ford" data-service="Battery Replacement" data-zip="91730">
+            <div class="deal-card-head">
+              <span class="service-badge">Battery</span>
+              <span class="mile-badge">8.1 mi</span>
+            </div>
+            <h3>Free Battery Test + Install Offer</h3>
+            <p class="dealer-name">Ford Service Ontario</p>
+            <p class="deal-meta">Ford • Parts & service • New offer</p>
+            <a href="#" class="deal-link">View dealer special</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="simple-section" id="dealers">
+      <div class="container three-cols">
+        <div class="mini-card">
+          <h3>Search</h3>
+          <p>Filter by service type, make, and ZIP code.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Compare</h3>
+          <p>See offers side-by-side with dealership distance.</p>
+        </div>
+        <div class="mini-card">
+          <h3>Save</h3>
+          <p>Choose the dealership special that makes sense for you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="container about-card">
+        <span class="eyebrow">About DealerSpecialsHub</span>
+        <h2>Your Shortcut to Dealership Savings.</h2>
+
+        <p>
+          Most people think <strong>"Dealership Service"</strong> means <strong>"Expensive."</strong>
+          We’re here to prove that’s not true. Dealerships run incredible specials every day to keep their bays full,
+          but those deals are usually hidden on page 10 of a Google search or buried in an email.
+        </p>
+
+        <p>
+          <strong>DealerSpecialsHub</strong> was created to bring every local dealership special into one clean,
+          easy-to-use dashboard. We do the digging, you get the savings.
+        </p>
+
+        <div class="about-list">
+          <div>
+            <h3>Centralized Search</h3>
+            <p>Stop visiting 15 different dealer websites. We pull local offers into one hub.</p>
+          </div>
+          <div>
+            <h3>Total Transparency</h3>
+            <p>Compare oil changes, brake services, tire rotations, and more side-by-side.</p>
+          </div>
+          <div>
+            <h3>Quality Without the Cost</h3>
+            <p>Access dealership-level service, genuine parts, and expert care at better prices.</p>
+          </div>
+        </div>
+
+        <p class="mission">
+          Our mission is simple: <strong>to make expert vehicle maintenance affordable for everyone.</strong>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>DealerSpecialsHub</span>
+      <span>Search • Compare • Save</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
