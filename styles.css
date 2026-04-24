@@ -791,3 +791,31 @@ input {
   }
 }
 }
+.logo-img {
+  height: 46px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+}
+
+.hero-car-img {
+  width: 520px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .logo-img {
+    height: 34px;
+    max-width: 210px;
+  }
+
+  .hero-car-img {
+    width: 280px;
+    margin: 12px auto 0;
+  }
+}
