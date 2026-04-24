@@ -816,3 +816,20 @@ input {
     max-width: 210px;
   }
 }
+.hero-car-img {
+  width: 520px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 900px) {
+  .hero-car-img {
+    width: 280px;
+    margin: 12px auto 0;
+  }
+}
