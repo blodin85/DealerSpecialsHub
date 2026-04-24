@@ -1,183 +1,51 @@
-/* --- 1. CORE SETUP --- */
-:root {
-  --navy: #003B8E;
-  --orange: #F78E1E;
-  --text: #334155;
-  --light-bg: #f8fafc;
-}
+/* --- UNIVERSAL RESET --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+body { background: #f4f7f9; color: #333; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', -apple-system, sans-serif;
+/* --- HEADER --- */
+header, .site-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; background: white; height: 60px; border-bottom: 1px solid #ddd;
 }
+header img, .site-logo { height: 30px; width: auto; }
 
-body {
-  background-color: var(--light-bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* --- 2. HEADER & SIGN IN BUTTON --- */
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5%;
-  height: 80px;
-  background: white;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.site-logo {
-  height: 45px;
-  width: auto;
-}
-
-/* Make the Sign In look like a real button */
-.nav-links .sign-in-btn {
-  background: var(--navy);
-  color: white;
-  padding: 10px 24px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border: 2px solid var(--navy);
-}
-
-.nav-links .sign-in-btn:hover {
-  background: transparent;
-  color: var(--navy);
-}
-
-/* --- 3. HERO SECTION --- */
+/* --- HERO --- */
 .hero {
-  background: linear-gradient(135deg, rgba(0, 59, 142, 0.9) 0%, rgba(0, 59, 142, 0.7) 100%), 
-              url('https://images.unsplash.com/photo-1486006396193-471a6f58bf69?auto=format&fit=crop&q=80&w=2000');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 80px 5% 120px;
-  text-align: center;
+    background: #003B8E; color: white; padding: 60px 20px; text-align: center;
 }
+.hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
 
-.hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 15px;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* --- 4. THE SEARCH CARD --- */
+/* --- SEARCH CARD (The Fix) --- */
 .search-card {
-  background: white;
-  width: 92%;
-  max-width: 1100px;
-  margin: -50px auto 60px;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) auto;
-  gap: 20px;
-  align-items: end;
+    background: white; width: 90%; max-width: 1000px; 
+    margin: -30px auto 30px; padding: 20px; border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;
+}
+.search-card div, .search-card label { display: flex; flex-direction: column; color: #003B8E; font-weight: bold; }
+.search-card input, .search-card select { height: 40px; padding: 5px; border: 1px solid #ccc; border-radius: 5px; }
+.search-card button { background: #F78E1E; color: white; border: none; padding: 10px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+
+/* --- SECTIONS (Prevents the Word Doc look) --- */
+section { padding: 40px 5%; text-align: center; }
+section h2 { margin-bottom: 30px; color: #003B8E; }
+
+/* Grid for Services/Why Us */
+section div[class*="grid"], .service-grid, .why-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.search-card label {
-  color: var(--navy);
-  font-weight: 700;
-  font-size: 0.8rem;
-  text-transform: uppercase;
+/* Individual Cards */
+section div[class*="card"], .service-card, .why-card {
+    background: white; padding: 20px; border-radius: 8px;
+    border: 1px solid #eee; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.search-card select, .search-card input {
-  width: 100%;
-  height: 50px;
-  margin-top: 8px;
-  padding: 0 15px;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  background: #fdfdfd;
-}
-
-.search-card button {
-  background: var(--orange);
-  color: white;
-  border: none;
-  padding: 0 40px;
-  height: 50px;
-  border-radius: 10px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-/* --- 5. SERVICES GRID (Anti-Word Document) --- */
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  color: var(--navy);
-  margin-bottom: 40px;
-}
-
-.service-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 0 5% 80px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.service-card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  border: 1px solid #edf2f7;
-  transition: all 0.3s ease;
-  text-align: left;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-}
-
-.service-card h3 {
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-
-/* --- 6. MOBILE REFINEMENT --- */
-@media (max-width: 850px) {
-  .site-header { height: 65px; }
-  
-  .site-logo { height: 30px !important; }
-
-  .hero {
-    padding: 50px 20px 40px;
-    text-align: left;
-  }
-
-  .search-card {
-    grid-template-columns: 1fr;
-    margin: 20px auto;
-    width: 94%;
-    padding: 20px;
-    gap: 15px;
-  }
-
-  .service-grid {
-    grid-template-columns: 1fr;
-  }
+/* --- MOBILE SPECIFIC --- */
+@media (max-width: 768px) {
+    .hero { text-align: left; padding: 40px 20px; }
+    .hero h1 { font-size: 1.6rem; }
+    .search-card { margin: 10px auto; flex-direction: column; align-items: stretch; }
+    header img, .site-logo { height: 22px !important; }
 }
