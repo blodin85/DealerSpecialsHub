@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerSpecialsHub | Find Dealer Service Specials Near You</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">
+      <span class="logo-icon">
+        <span class="car">▰</span>
+      </span>
+      <span>Dealer<span>Specials</span>Hub</span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#specials">Find Specials</a>
+      <a href="#services">Categories</a>
+      <a href="#dealers">For Dealers</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="zip">📍 90210</span>
+      <button class="sign-in">Sign In</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <h1>Find Dealer Service <span>Specials</span> Near You.</h1>
+          <p>Search, compare, and save on service specials from trusted dealerships in your area.</p>
+
+          <div class="mini-steps">
+            <span>🔎 Search</span>
+            <span>⚖️ Compare</span>
+            <span>🏷️ Save</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="search-card" id="searchForm">
+        <label>
+          <span>Service Type</span>
+          <select id="serviceType">
+            <option>All Services</option>
+            <option>Oil Change</option>
+            <option>Brake Service</option>
+            <option>Tire Rotation</option>
+            <option>Battery Service</option>
+            <option>Alignment</option>
+          </select>
+        </label>
+
+        <label>
+          <span>Make</span>
+          <select id="make">
+            <option>All Makes</option>
+            <option>Toyota</option>
+            <option>Honda</option>
+            <option>Ford</option>
+            <option>Chevrolet</option>
+            <option>Nissan</option>
+          </select>
+        </label>
+
+        <label>
+          <span>ZIP Code</span>
+          <input id="zipCode" value="90210" inputmode="numeric" maxlength="5" />
+        </label>
+
+        <button type="submit">🔎 Search Specials</button>
+        <div class="search-note">✓ 100% free to search &nbsp; • &nbsp; No signup required</div>
+      </form>
+    </section>
+
+    <section class="why" id="how">
+      <h2>Why Use DealerSpecialsHub?</h2>
+      <div class="why-grid">
+        <article>
+          <div class="icon">🏷️</div>
+          <h3>Exclusive Dealer Specials</h3>
+          <p>Access the best service deals directly from local dealerships.</p>
+        </article>
+        <article>
+          <div class="icon">📍</div>
+          <h3>Local & Convenient</h3>
+          <p>Find specials available at dealerships near your ZIP code.</p>
+        </article>
+        <article>
+          <div class="icon">⚖️</div>
+          <h3>Compare & Choose</h3>
+          <p>Compare offers side by side to get the best value.</p>
+        </article>
+        <article>
+          <div class="icon">💳</div>
+          <h3>Save More</h3>
+          <p>Save money on maintenance you already need.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="section-head">
+        <h2>Popular Services</h2>
+        <a href="#">View All Services →</a>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-img oil"></div>
+          <div>
+            <h3>Oil Change</h3>
+            <p>From</p>
+            <strong>$29<sup>95</sup></strong>
+            <span>32 Specials</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img brakes"></div>
+          <div>
+            <h3>Brake Service</h3>
+            <p>From</p>
+            <strong>$99<sup>95</sup></strong>
+            <span>28 Specials</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img tires"></div>
+          <div>
+            <h3>Tire Rotation</h3>
+            <p>From</p>
+            <strong>$19<sup>95</sup></strong>
+            <span>18 Specials</span>
+          </div>
+        </article>
+        <article class="service-card">
+          <div class="service-img battery"></div>
+          <div>
+            <h3>Battery Service</h3>
+            <p>From</p>
+            <strong>$129<sup>95</sup></strong>
+            <span>16 Specials</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="trust" id="dealers">
+      <div>
+        <h3>Trusted Dealers. Great Service.</h3>
+        <p>All specials are from dealerships you know and trust.</p>
+      </div>
+      <div class="dealer-logos">
+        <span>FORD</span><span>TOYOTA</span><span>HONDA</span><span>CHEVROLET</span><span>NISSAN</span><span>JEEP</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const service = document.getElementById('serviceType').value;
+      const make = document.getElementById('make').value;
+      const zip = document.getElementById('zipCode').value;
+      alert(`Searching for ${service} specials for ${make} near ${zip}.`);
+    });
+  </script>
+</body>
+</html>
