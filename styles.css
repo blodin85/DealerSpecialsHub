@@ -1,114 +1,114 @@
-/* 1. BRAND COLORS & FONTS */
+/* --- BRAND COLORS --- */
 :root {
   --brand-navy: #003B8E;
   --brand-orange: #F78E1E;
-  --bg-light: #f8f9fa;
-  --white: #ffffff;
 }
 
+/* --- CORE LAYOUT --- */
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  padding: 0;
   color: var(--brand-navy);
-  background-color: var(--white);
+  line-height: 1.5;
 }
 
-/* 2. HEADER & LOGO */
+/* --- HEADER & LOGO --- */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 5%;
-  border-bottom: 2px solid var(--brand-orange); /* Subtle orange line under header */
+  padding: 1rem 5%;
+  background: white;
+  border-bottom: 1px solid #eee;
 }
 
+/* This fixes your logo size */
 .site-logo {
-  height: 80px; /* Adjust this to make your logo bigger/smaller */
+  height: 70px; /* Change this number to adjust size */
   width: auto;
+  display: block;
 }
 
 .nav-links a {
   text-decoration: none;
   color: var(--brand-navy);
-  font-weight: 600;
   margin-left: 20px;
+  font-weight: 500;
 }
 
-.nav-links a:hover {
-  color: var(--brand-orange);
-}
-
-/* 3. HERO SECTION */
+/* --- HERO SECTION --- */
 .hero {
-  background-color: var(--brand-navy);
-  color: var(--white);
-  padding: 80px 5%;
+  background: linear-gradient(rgba(0,59,142,0.9), rgba(0,59,142,0.9)), url('https://images.unsplash.com/photo-1486006396193-471a6f58bf69?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 100px 5%;
   text-align: center;
 }
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 10px;
-  color: var(--white); /* White text on navy background */
+  margin-bottom: 1rem;
 }
 
 .hero h1 span {
-  color: var(--brand-orange); /* Makes "Specials" Orange */
+  color: var(--brand-orange);
 }
 
-/* 4. BUTTONS */
-button[type="submit"], .sign-in {
+/* --- BUTTONS --- */
+button.sign-in, .search-card button {
   background-color: var(--brand-orange);
   color: white;
   border: none;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
   cursor: pointer;
-  text-transform: uppercase;
 }
 
-button[type="submit"]:hover {
-  background-color: #d67a19; /* A slightly darker orange on hover */
-}
-
-/* 5. SEARCH CARD */
+/* --- SEARCH CARD --- */
 .search-card {
-  background: var(--white);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  max-width: 900px;
-  margin: -50px auto 50px; /* Pulls it up into the hero section */
-  display: flex;
-  gap: 20px;
-  align-items: flex-end;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: -50px auto 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   color: var(--brand-navy);
 }
 
 .search-card label span {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
-  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-/* 6. SERVICE CARDS */
+.search-card select, .search-card input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* --- GRIDS --- */
+.why-grid, .service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 5%;
+}
+
 .service-card {
   border: 1px solid #eee;
+  padding: 1.5rem;
   border-radius: 8px;
-  padding: 20px;
   text-align: center;
-  transition: transform 0.2s;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--brand-orange);
 }
 
 .service-card strong {
-  font-size: 1.5rem;
   color: var(--brand-orange);
+  font-size: 1.5rem;
 }
