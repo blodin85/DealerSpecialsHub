@@ -770,27 +770,9 @@ input {
   .about-columns {
     grid-template-columns: 1fr;
   }
-  .logo-img {
-  height: 50px;
-  width: auto;
-}
-  .hero-car-img {
-  width: 520px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  position: relative;
-  z-index: 2;
-}
+ }
 
-@media (max-width: 900px) {
-  .hero-car-img {
-    width: 280px;
-    margin: 15px auto 0;
-  }
-}
-}
+/* Real uploaded logo image */
 .logo-img {
   height: 46px;
   width: auto;
@@ -798,6 +780,7 @@ input {
   object-fit: contain;
 }
 
+/* Real uploaded car image */
 .hero-car-img {
   width: 520px;
   max-width: 100%;
@@ -818,9 +801,4 @@ input {
     width: 280px;
     margin: 12px auto 0;
   }
-}
-.logo-img {
-  height: 46px;
-  width: auto;
-  max-width: 260px;
 }
