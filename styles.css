@@ -258,39 +258,50 @@ a { color: inherit; text-decoration: none; }
 /* --- MOBILE RESPONSIVE FIXES --- */
 @media (max-width: 768px) {
   
-  /* 1. Shrink the Hero text so it doesn't wrap weirdly */
+  /* Centering the Header & Logo */
+  .site-header {
+    flex-direction: column; /* Stacks logo and sign-in button */
+    gap: 15px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  /* Centering the Hero Content */
+  .hero {
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the text horizontally */
+  }
+
   .hero h1 {
     font-size: 1.8rem !important;
-    padding: 0 10px;
-  }
-
-  /* 2. Make the Search Card stack vertically */
-  .search-card {
-    flex-direction: column; /* Stack items top-to-bottom */
-    align-items: stretch;
-    margin: -30px 20px 20px 20px; /* Give it some side breathing room */
-    gap: 15px;
-  }
-
-  /* 3. Ensure inputs and buttons take up the full width */
-  .search-card label, .search-card button {
+    text-align: center;
     width: 100%;
   }
 
-  /* 4. Hide the navigation links in a "simple" way for now */
-  /* (Or keep them, but stack them) */
-  .nav-links {
-    display: none; /* Simplest fix: hide links on mobile to save space */
+  /* Centering the Search Card */
+  .search-card {
+    flex-direction: column;
+    margin: -30px 15px 20px 15px; /* Ensures even gaps on left/right */
+    padding: 20px;
+    align-items: center; /* Centers labels and inputs */
   }
 
-  /* 5. Fix the Service Grid so it's 1 column instead of 4 */
+  .search-card label {
+    width: 100%;
+    text-align: left; /* Keeps labels easy to read above inputs */
+  }
+
+  /* Centering the Service Grids */
   .service-grid, .why-grid {
     grid-template-columns: 1fr !important;
     padding: 20px;
+    justify-items: center; /* Centering the cards themselves */
   }
 
-  /* 6. Adjust Logo size for small screens */
-  .site-logo {
-    height: 50px; 
+  .service-card {
+    width: 90%; /* Keeps cards from touching the very edge of the screen */
+    margin: 0 auto;
   }
 }
