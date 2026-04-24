@@ -1,129 +1,113 @@
-/* --- 1. MODERN RESET --- */
+/* --- 1. CORE SETUP --- */
 :root {
   --navy: #003B8E;
   --orange: #F78E1E;
+  --text: #334155;
   --light-bg: #f8fafc;
-  --glass: rgba(255, 255, 255, 0.95);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, sans-serif;
 }
 
 body {
   background-color: var(--light-bg);
-  color: #1e293b;
-  overflow-x: hidden;
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* --- 2. PREMIUM HEADER --- */
+/* --- 2. HEADER & SIGN IN BUTTON --- */
 .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  height: 70px;
+  height: 80px;
   background: white;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .site-logo {
-  height: 38px;
+  height: 45px;
   width: auto;
-  transition: transform 0.3s ease;
 }
 
-.nav-links a {
+/* Make the Sign In look like a real button */
+.nav-links .sign-in-btn {
+  background: var(--navy);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
   text-decoration: none;
-  color: var(--navy);
   font-weight: 600;
-  font-size: 0.95rem;
-  margin-left: 30px;
-  transition: color 0.2s;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 2px solid var(--navy);
 }
 
-.nav-links a:hover {
-  color: var(--orange);
+.nav-links .sign-in-btn:hover {
+  background: transparent;
+  color: var(--navy);
 }
 
-/* --- 3. HIGH-END HERO --- */
+/* --- 3. HERO SECTION --- */
 .hero {
-  position: relative;
-  background: linear-gradient(135deg, rgba(0, 59, 142, 0.92) 0%, rgba(0, 59, 142, 0.8) 100%), 
+  background: linear-gradient(135deg, rgba(0, 59, 142, 0.9) 0%, rgba(0, 59, 142, 0.7) 100%), 
               url('https://images.unsplash.com/photo-1486006396193-471a6f58bf69?auto=format&fit=crop&q=80&w=2000');
   background-size: cover;
   background-position: center;
   color: white;
-  padding: clamp(60px, 10vh, 120px) 5% clamp(100px, 15vh, 150px);
+  padding: 80px 5% 120px;
   text-align: center;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  line-height: 1.1;
-  max-width: 900px;
-  margin: 0 auto 15px;
-}
-
-.hero h1 span {
-  color: var(--orange);
-  position: relative;
+  margin-bottom: 15px;
 }
 
 .hero p {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: 1.2rem;
   opacity: 0.9;
-  font-weight: 400;
 }
 
-/* --- 4. THE "FLOATING" GLASS CARD --- */
+/* --- 4. THE SEARCH CARD --- */
 .search-card {
-  background: var(--glass);
-  backdrop-filter: blur(10px);
+  background: white;
   width: 92%;
   max-width: 1100px;
-  margin: -60px auto 60px;
-  padding: 35px;
-  border-radius: 20px;
-  border-top: 4px solid var(--orange); /* Branding accent */
-  box-shadow: 0 20px 40px rgba(0, 59, 142, 0.15);
+  margin: -50px auto 60px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
   display: grid;
   grid-template-columns: repeat(3, 1fr) auto;
-  gap: 25px;
+  gap: 20px;
   align-items: end;
 }
 
 .search-card label {
   color: var(--navy);
   font-weight: 700;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .search-card select, .search-card input {
   width: 100%;
-  height: 52px;
+  height: 50px;
   margin-top: 8px;
   padding: 0 15px;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  background-color: #ffffff;
-  font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.search-card select:focus {
-  outline: none;
-  border-color: var(--navy);
-  box-shadow: 0 0 0 3px rgba(0, 59, 142, 0.1);
+  border-radius: 10px;
+  background: #fdfdfd;
 }
 
 .search-card button {
@@ -131,49 +115,69 @@ body {
   color: white;
   border: none;
   padding: 0 40px;
-  height: 52px;
-  border-radius: 12px;
+  height: 50px;
+  border-radius: 10px;
   font-weight: 700;
-  font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(247, 142, 30, 0.3);
+  transition: transform 0.2s;
+}
+
+/* --- 5. SERVICES GRID (Anti-Word Document) --- */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 40px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 0 5% 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #edf2f7;
   transition: all 0.3s ease;
+  text-align: left;
 }
 
-.search-card button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(247, 142, 30, 0.4);
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* --- 5. MOBILE REFINEMENT --- */
+.service-card h3 {
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+/* --- 6. MOBILE REFINEMENT --- */
 @media (max-width: 850px) {
-  .site-header {
-    height: 60px;
-  }
-
-  .site-logo {
-    height: 28px !important;
-  }
-
-  .nav-links {
-    display: none;
-  }
+  .site-header { height: 65px; }
+  
+  .site-logo { height: 30px !important; }
 
   .hero {
-    padding: 50px 20px 40px 20px;
+    padding: 50px 20px 40px;
     text-align: left;
   }
 
   .search-card {
-    margin: 20px auto; 
     grid-template-columns: 1fr;
-    padding: 25px;
-    gap: 15px;
+    margin: 20px auto;
     width: 94%;
+    padding: 20px;
+    gap: 15px;
   }
 
-  .search-card button {
-    width: 100%;
-    margin-top: 10px;
+  .service-grid {
+    grid-template-columns: 1fr;
   }
 }
