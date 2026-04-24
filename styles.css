@@ -819,3 +819,8 @@ input {
     margin: 12px auto 0;
   }
 }
+.logo-img {
+  height: 46px;
+  width: auto;
+  max-width: 260px;
+}
