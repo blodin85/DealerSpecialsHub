@@ -896,4 +896,8 @@ input {
   .about-columns {
     grid-template-columns: 1fr;
   }
+  .logo-img {
+  height: 50px;
+  width: auto;
+}
 }
