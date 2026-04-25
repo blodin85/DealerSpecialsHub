@@ -73,6 +73,7 @@ let allDeals = [...fallbackDeals];
 const serviceTypeSelect = document.getElementById("serviceType");
 const makeSelect = document.getElementById("make");
 const zipInput = document.getElementById("zipCode");
+const mileageSelect = document.getElementById("mileage");
 const dealerGrid = document.getElementById("dealerGrid");
 const activeZip = document.getElementById("activeZip");
 const searchForm = document.getElementById("searchForm");
@@ -146,6 +147,7 @@ function searchDeals() {
   const selectedService = normalize(serviceTypeSelect.value);
   const selectedMake = normalize(makeSelect.value);
   const zip = normalize(zipInput.value);
+  const selectedMileage = mileageSelect.value;
 
   if (zip) activeZip.textContent = zip;
 
@@ -153,7 +155,11 @@ function searchDeals() {
     const serviceMatch = !selectedService || normalize(deal.serviceType).includes(selectedService);
     const makeMatch = !selectedMake || normalize(deal.brand).includes(selectedMake);
     const zipMatch = !zip || normalize(deal.zip) === zip || !deal.zip;
-    return serviceMatch && makeMatch && zipMatch;
+    const mileageMatch =
+  !selectedMileage ||
+  (deal.distance && deal.distance <= Number(selectedMileage));
+
+return serviceMatch && makeMatch && zipMatch && mileageMatch;
   });
 
   const results = filtered.length ? filtered : allDeals.slice(0, 4);
