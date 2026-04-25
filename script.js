@@ -73,6 +73,40 @@ let allDeals = [...fallbackDeals];
 const serviceTypeSelect = document.getElementById("serviceType");
 const makeSelect = document.getElementById("make");
 const zipInput = document.getElementById("zipCode");
+// 📍 Get user location
+function getUserLocation() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject("Geolocation not supported");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        resolve({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        });
+      },
+      error => reject(error)
+    );
+  });
+}
+
+// 📏 Calculate distance
+function calculateDistanceMiles(lat1, lon1, lat2, lon2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(lat1 * Math.PI / 180) *
+    Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLon / 2) ** 2;
+
+  return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
+}
 const mileageSelect = document.getElementById("mileage");
 const dealerGrid = document.getElementById("dealerGrid");
 const activeZip = document.getElementById("activeZip");
@@ -143,27 +177,60 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function searchDeals() {
+async function searchDeals() {
   const selectedService = normalize(serviceTypeSelect.value);
   const selectedMake = normalize(makeSelect.value);
   const zip = normalize(zipInput.value);
-  const selectedMileage = mileageSelect.value;
+  const selectedMileage = mileageSelect ? mileageSelect.value : "";
 
   if (zip) activeZip.textContent = zip;
 
-  const filtered = allDeals.filter(deal => {
+  let userLocation = null;
+
+  try {
+    userLocation = await getUserLocation();
+    activeZip.textContent = "Your Location";
+  } catch (error) {
+    console.log("Location not allowed.");
+  }
+
+  let filtered = allDeals.filter(deal => {
     const serviceMatch = !selectedService || normalize(deal.serviceType).includes(selectedService);
     const makeMatch = !selectedMake || normalize(deal.brand).includes(selectedMake);
     const zipMatch = !zip || normalize(deal.zip) === zip || !deal.zip;
-    const mileageMatch =
-  !selectedMileage ||
-  (deal.distance && deal.distance <= Number(selectedMileage));
 
-return serviceMatch && makeMatch && zipMatch && mileageMatch;
+    return serviceMatch && makeMatch && zipMatch;
   });
 
-  const results = filtered.length ? filtered : allDeals.slice(0, 4);
-  renderDealers(results.slice(0, 4));
+  if (userLocation) {
+    filtered = filtered.map(deal => {
+      const dealerLat = Number(deal.latitude);
+      const dealerLng = Number(deal.longitude);
+
+      if (!dealerLat || !dealerLng) {
+        return { ...deal, distance: null };
+      }
+
+      const distance = calculateDistanceMiles(
+        userLocation.lat,
+        userLocation.lng,
+        dealerLat,
+        dealerLng
+      );
+
+      return { ...deal, distance };
+    });
+
+    filtered.sort((a, b) => (a.distance ?? 9999) - (b.distance ?? 9999));
+
+    if (selectedMileage) {
+      filtered = filtered.filter(deal =>
+        deal.distance !== null && deal.distance <= Number(selectedMileage)
+      );
+    }
+  }
+
+  renderDealers(filtered.length ? filtered : allDeals);
 }
 
 function parseCsv(text) {
