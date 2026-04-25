@@ -2,45 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DealerSpecialsHub</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DealerSpecialsHub | Search • Compare • Save</title>
+  <meta name="description" content="Search, compare, and save on dealership service and parts specials near you." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a href="#" class="logo" aria-label="DealerSpecialsHub home">
+        <img src="logo4Rev.png" alt="DealerSpecialsHub Logo" class="logo-img">
+      </a>
 
-<header class="header">
-  <img src="logo4Rev.png" class="logo-img" alt="logo">
-</header>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#search" class="active">Search Deals</a>
+        <a href="#how">How It Works</a>
+        <a href="#dealers">For Dealers</a>
+        <a href="#about">About Us</a>
+      </nav>
 
-<section class="hero">
-  <div class="hero-left">
-    <h1>
-      Find the Best <br>
-      <span>Dealer Specials</span> <br>
-      Near You
-    </h1>
-    <p>Search, compare and save on service specials.</p>
+      <div class="desktop-actions">
+        <a href="#" class="login-link">Login</a>
+        <a href="#" class="signup-btn">Sign Up</a>
+      </div>
+
+      <button class="mobile-menu" aria-label="Open menu">☰</button>
+    </header>
+
+    <main>
+      <section class="hero-section" id="search">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>
+              Find the Best<br>
+              <span>Dealer Specials</span><br>
+              Near You
+            </h1>
+            <p>
+              Search, compare and save on service &amp; parts specials from trusted dealerships.
+            </p>
+          </div>
+
+          <div class="hero-art" aria-hidden="true">
+            <div class="city"></div>
+            <img src="car.png" alt="" class="hero-car-img">
+          </div>
+        </div>
+
+        <form class="search-panel" id="searchForm">
+          <div class="field">
+            <label for="serviceType">Service Type</label>
+            <div class="input-wrap">
+              <span class="field-icon">🔧</span>
+              <select id="serviceType">
+                <option value="">Select Service Type</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="make">Make</label>
+            <div class="input-wrap">
+              <span class="field-icon">🚘</span>
+              <select id="make">
+                <option value="">Select Make</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="zipCode">ZIP Code</label>
+            <div class="input-wrap">
+              <span class="field-icon">📍</span>
+              <input id="zipCode" type="text" inputmode="numeric" maxlength="5" placeholder="Enter ZIP Code" autocomplete="postal-code" />
+            </div>
+          </div>
+
+          <button class="search-btn" type="submit">
+            <span>⌕</span>
+            Search Deals
+          </button>
+        </form>
+      </section>
+
+      <section class="dealerships-section" id="results">
+        <div class="section-title-row">
+          <div>
+            <h2>Top Dealerships Near You</h2>
+          </div>
+          <div class="zip-status">
+            <span>📍</span>
+            <strong id="activeZip">Enter ZIP</strong>
+            <button id="changeZipBtn" type="button">Change ZIP</button>
+          </div>
+        </div>
+
+        <div class="dealer-grid" id="dealerGrid">
+          <article class="dealer-card skeleton-card">
+            <div class="dealer-logo-placeholder"></div>
+            <h3>Search to see nearby dealerships</h3>
+            <p>Enter a service type, make, and ZIP code to compare local dealer specials.</p>
+          </article>
+        </div>
+
+        <button class="view-more" id="viewMoreBtn" type="button">View More Dealerships</button>
+      </section>
+
+      <section class="benefits" id="how">
+        <div class="benefit">
+          <div class="benefit-icon">🏷️</div>
+          <div>
+            <h3>Compare &amp; Save</h3>
+            <p>Browse and compare specials from local dealerships.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">📍</div>
+          <div>
+            <h3>Local &amp; Accurate</h3>
+            <p>See deals near you with real mileage estimates.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <div class="benefit-icon">🛡️</div>
+          <div>
+            <h3>Trusted Dealers</h3>
+            <p>All dealerships are verified and reliable.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section" id="about">
+        <div class="about-card">
+          <p class="about-kicker">About DealerSpecialsHub</p>
+          <h2>Your Shortcut to Dealership Savings.</h2>
+          <p>Most people think <strong>&quot;Dealership Service&quot;</strong> means <strong>&quot;Expensive.&quot;</strong> We’re here to prove that’s not true. Dealerships run incredible specials every day to keep their bays full, but those deals are usually hidden on page 10 of a Google search or buried in an email.</p>
+          <p><strong>DealerSpecialsHub</strong> was created to bring every local dealership special into one clean, easy-to-use dashboard. We do the digging, you get the savings.</p>
+
+          <h3>Why DealerSpecialsHub?</h3>
+          <p>We know that your vehicle is one of your biggest investments. You want the experts—the factory-trained technicians who know your car best—but you don't want to pay the &quot;standard&quot; dealership markup.</p>
+
+          <div class="about-columns">
+            <div><h4>Centralized Search</h4><p>Stop visiting 15 different dealer websites. We pull the best local offers into one hub.</p></div>
+            <div><h4>Total Transparency</h4><p>Compare oil changes, brake services, and tire rotations side-by-side.</p></div>
+            <div><h4>Quality Without the Cost</h4><p>Access dealership-level equipment, genuine parts, and expert service at a smarter price.</p></div>
+          </div>
+
+          <h3>The Mission</h3>
+          <p>Our mission is simple: <strong>To make expert vehicle maintenance affordable for everyone.</strong> By connecting savvy drivers with under-the-radar dealership specials, we ensure your car stays in peak condition without breaking the bank.</p>
+          <p class="about-final">Search. Compare. Save. <strong>Welcome to the Hub.</strong></p>
+        </div>
+      </section>
+    </main>
   </div>
 
-  <div class="hero-right">
-    <img src="car.png" class="hero-car-img" alt="car">
-  </div>
-</section>
-
-<section class="search">
-  <select>
-    <option>Service Type</option>
-  </select>
-
-  <select>
-    <option>Make</option>
-  </select>
-
-  <input placeholder="ZIP Code">
-
-  <button>Search Deals</button>
-</section>
-
+  <script src="script.js"></script>
 </body>
 </html>
