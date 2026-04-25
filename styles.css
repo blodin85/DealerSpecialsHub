@@ -158,8 +158,8 @@ button, select, input { font: inherit; }
   height: auto;
   display: block;
   position: absolute;
-  right: 60px;
-  bottom: 8px;
+  right: 40px;
+  bottom: -20px;
   z-index: 2;
 }
 
