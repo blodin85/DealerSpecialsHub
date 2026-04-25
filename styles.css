@@ -153,12 +153,12 @@ button, select, input { font: inherit; }
 }
 
 .hero-car-img {
-  width: 1700px;
+  width: 2000px;
   max-width: 88%;
   height: auto;
   display: block;
   position: absolute;
-  right: 60px;
+  right: 70px;
   bottom: -40px;
   z-index: 2;
 }
